@@ -69,7 +69,7 @@ In addition to the required **Sales** and **Profit** reports, an extra **Purchas
 
 - Focuses on sales quantity, loyalty points, performance by country and product
 - Trend lines for median sales and product categories
-- Country-based sales performance heatmap
+- Country-based median sales
 
 ---
 
@@ -155,7 +155,13 @@ CALCULATE(
 
 **Issue**:  
 While importing exchange rate data using a Python script in Power BI, I encountered the following error:
-- Details: "ADO.NET: Python script error. Traceback (most recent call last): File "...\PythonScriptWrapper.PY", line 2, in <module> import os, pandas, matplotlib ModuleNotFoundError: No module named 'pandas'"
+``` makefile
+Details: "ADO.NET: Python script error.
+Traceback (most recent call last):
+  File "...PythonScriptWrapper.PY", line 2, in <module>
+    import os, pandas, matplotlib
+ModuleNotFoundError: No module named 'pandas'"
+```
 
 **Resolution**:
 - Installed the missing pandas library by running:
@@ -215,4 +221,4 @@ While importing exchange rate data using a Python script in Power BI, I encounte
 This project demonstrates end-to-end proficiency with Power BI. From cleaning and modeling to storytelling with interactive dashboards, this capstone proves readiness to take on real-world analytics roles.
 
 ---
-> Built with ❤️ by [Abigail Cabadin](https://github.com/abig
+> Built with ❤️ by [Abigail Cabadin](https://github.com/abigailcabadin)
