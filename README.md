@@ -65,7 +65,7 @@ In addition to the required **Sales** and **Profit** reports, an extra **Purchas
 ## 📊 Power BI Reports
 
 ### 🟦 Sales Overview
-![Sales Overview](https://github.com/abigailcabadin/Tailwind-Traders-PowerBI-project/blob/main/Sales%20Overview.jpg)
+![Sales Overview](https://raw.githubusercontent.com/abigailcabadin/Tailwind-Traders-PowerBI-project/main/Sales%20Overview.jpg)
 
 - Focuses on sales quantity, loyalty points, performance by country and product
 - Trend lines for median sales and product categories
@@ -74,7 +74,7 @@ In addition to the required **Sales** and **Profit** reports, an extra **Purchas
 ---
 
 ### 🟨 Purchases Overview *(Bonus Report)*
-![Purchases Overview](https://github.com/abigailcabadin/Tailwind-Traders-PowerBI-project/blob/main/Purchases%20overview.jpg)
+![Purchases Overview](https://raw.githubusercontent.com/abigailcabadin/Tailwind-Traders-PowerBI-project/main/Purchases%20overview.jpg)
 
 - Supplier breakdown and product category purchasing
 - Purchase return rates and rep feedback
@@ -83,7 +83,7 @@ In addition to the required **Sales** and **Profit** reports, an extra **Purchas
 ---
 
 ### 🟥 Profit Overview
-![Profit Overview](https://github.com/abigailcabadin/Tailwind-Traders-PowerBI-project/blob/main/Profit%20Overview.jpg)
+![Profit Overview](https://raw.githubusercontent.com/abigailcabadin/Tailwind-Traders-PowerBI-project/main/Profit%20Overview.jpg)
 
 - Key metrics: total revenue, total cost, net profit, profit margin
 - Quarterly and yearly trend analysis
