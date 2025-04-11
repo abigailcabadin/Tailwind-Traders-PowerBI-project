@@ -103,6 +103,9 @@ ADDCOLUMNS(
     "Month Name", FORMAT([Date], "MMMM"),
     "Quarter", "Q" & FORMAT([Date], "Q")
 )
+```
 
 ### 💲 Sales in USD
+```dax
 Sales in USD = Sales[Sales Amount] * RELATED(ExchangeRates[ExchangeRate])
+```
