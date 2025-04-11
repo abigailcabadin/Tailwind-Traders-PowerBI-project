@@ -1,4 +1,4 @@
-# ![Tailwind Traders Logo](https://github.com/abigailcabadin/Tailwind-Traders-PowerBI-project/blob/main/tailwind%20traders%20logo.jpg)
+#![Tailwind Traders Logo](https://raw.githubusercontent.com/abigailcabadin/Tailwind-Traders-PowerBI-project/main/tailwind%20traders%20logo.jpg)
 
 # 📊 Tailwind Traders Power BI Project
 
