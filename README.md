@@ -104,106 +104,131 @@ ADDCOLUMNS(
     "Month Name", FORMAT([Date], "MMMM"),
     "Quarter", "Q" & FORMAT([Date], "Q")
 )
----
-### 💲Sales in USD (via Python exchange rate)
-```dax
+💲 Sales in USD (via Python Exchange Rate)
+dax
+Copy
+Edit
 Sales in USD = Sales[Sales Amount] * RELATED(ExchangeRates[ExchangeRate])
-
-### 💰Profit USD (Calculated Column)
-```dax
+💰 Profit USD (Calculated Column)
+dax
+Copy
+Edit
 Profit USD = Sales[Net Revenue USD] - Sales[Total Cost USD]
----
-### 📉 Yearly Profit Margin
-```dax
+📉 Yearly Profit Margin
+dax
+Copy
+Edit
 Yearly Profit Margin = 
 DIVIDE(
     SUM(Sales[Profit USD]),
     SUM(Sales[Gross Revenue USD])
 )
----
-### 📈 Quarterly Profit
-```dax
+📈 Quarterly Profit
+dax
+Copy
+Edit
 Quarterly Profit = 
 CALCULATE(
     SUM(Sales[Profit USD]),
     DATESQTD(CalendarTable[Date])
 )
----
-### 📊 Median Sales
-```dax
+📊 Median Sales
+dax
+Copy
+Edit
 Median Sales = MEDIAN(Sales[Sales Quantity])
----
-### 📅 YTD Profit
-```dax
+📅 YTD Profit
+dax
+Copy
+Edit
 YTD Profit = 
 CALCULATE(
     SUM(Sales[Profit USD]),
     DATESYTD(CalendarTable[Date])
 )
-
----
-
-## 🛠️ Issues Encountered & Resolutions
-
-### 1. 🐍 Python Script Import Error (Missing Module)
-
-**Issue**:  
+🛠️ Issues Encountered & Resolutions
+1. 🐍 Python Script Import Error (Missing Module)
+Issue:
 While importing exchange rate data using a Python script in Power BI, I encountered the following error:
-- Details: "ADO.NET: Python script error. Traceback (most recent call last): File "...\PythonScriptWrapper.PY", line 2, in <module> import os, pandas, matplotlib ModuleNotFoundError: No module named 'pandas'"
 
-**Resolution**:
-- Installed the missing `pandas` library by running:
-  ```bash
-  pip install pandas
-- Restarted Power BI Desktop to reload Python dependencies.
-- Configured Power BI to use the correct Python environment under File > Options and settings > Options > Python scripting.
+makefile
+Copy
+Edit
+Details: "ADO.NET: Python script error.
+Traceback (most recent call last):
+  File "...\PythonScriptWrapper.PY", line 2, in <module>
+    import os, pandas, matplotlib
+ModuleNotFoundError: No module named 'pandas'"
+Resolution:
 
----
+Installed the missing pandas library by running:
 
-### 2. 🧾 Incorrect Field Names and Table Reference in DAX
-**Issue**: Dax formulas were returning errors due to:
-- A space in the column name (Exchange Rate instead of ExchangeRate)
--Incorrect table name from the python script output (df was not properly referenced)
+bash
+Copy
+Edit
+pip install pandas
+Restarted Power BI Desktop to reload Python dependencies.
 
-**Resolution**:
-- Renamed the column to ExchangeRate (removed the space).
+Configured Power BI to use the correct Python environment under: File > Options and settings > Options > Python scripting
 
----
+2. 🧾 Incorrect Field Names and Table Reference in DAX
+Issue:
+DAX formulas were returning errors due to:
 
-### 3. 🔧 Data Model Adjustment
+A space in the column name (Exchange Rate instead of ExchangeRate)
 
-**Issue**: The new `Sales in USD` table needed a calculated column for `Profit USD`, and it was crucial to maintain correct relationships to allow for time-intelligence functions (e.g., YTD).
+Incorrect table name from the Python script output (Power BI expected df)
 
-**Resolution**:
-- Created a new calculated column using DAX for `Profit USD`.
-- Reviewed and validated relationships across all relevant tables to ensure time-aware calculations worked as expected.
+Resolution:
 
----
+Renamed the column to ExchangeRate (removed the space)
 
-### 3. 📊 Chart Formatting Challenges
+Ensured the final DataFrame in Python was named df:
 
-**Issue**: Dashboard visuals, especially slicers and axis labels, were not responsive or well-aligned initially, leading to a cluttered user experience.
+python
+Copy
+Edit
+df = merged_data  # Required final variable name for Power BI
+3. 🔧 Data Model Adjustment
+Issue:
+The new Sales in USD table needed a calculated column for Profit USD, and it was crucial to maintain correct relationships to allow for time-intelligence functions (e.g., YTD).
 
-**Resolution**:
-- Fine-tuned the slicer behavior and adjusted axis scaling and sorting.
-- Aligned visuals for consistent layout and improved readability.
+Resolution:
 
----
+Created a new calculated column using DAX for Profit USD
 
-## 🎓 Course Skills Applied
+Reviewed and validated relationships across all relevant tables to ensure time-aware calculations worked as expected
 
-- ✅ Data extraction and transformation with **Power Query**
-- ✅ Designing dimensional data models (star schema)
-- ✅ DAX functions for custom metrics and KPIs
-- ✅ Time intelligence using `DATESYTD`, `DATESQTD`, `YEAR`, `QUARTER`
-- ✅ Interactive dashboard creation with slicers, cards, pie/bar/line charts
-- ✅ Usability and storytelling through visual design
+4. 📊 Chart Formatting Challenges
+Issue:
+Dashboard visuals—especially slicers and axis labels—were not responsive or well-aligned initially, leading to a cluttered user experience.
 
----
+Resolution:
 
-## 🚀 Outcome
+Fine-tuned slicer behavior and adjusted axis scaling and sorting
 
+Aligned visuals for consistent layout and improved readability
+
+🎓 Course Skills Applied
+✅ Data extraction and transformation with Power Query
+
+✅ Designing dimensional data models (star schema)
+
+✅ DAX functions for custom metrics and KPIs
+
+✅ Time intelligence using DATESYTD, DATESQTD, YEAR, QUARTER
+
+✅ Interactive dashboard creation with slicers, cards, pie/bar/line charts
+
+✅ Usability and storytelling through visual design
+
+🚀 Outcome
 This project demonstrates end-to-end proficiency with Power BI. From cleaning and modeling to storytelling with interactive dashboards, this capstone proves readiness to take on real-world analytics roles.
 
----
-> Built with ❤️ by [Abigail Cabadin](https://github.com/abigailcabadin)
+Built with ❤️ by Abigail Cabadin
+
+vbnet
+Copy
+Edit
+
+Let me know if you want this merged with the rest of your README, including project overview, case study, sc
