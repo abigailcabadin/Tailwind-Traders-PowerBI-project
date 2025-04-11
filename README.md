@@ -104,7 +104,7 @@ ADDCOLUMNS(
     "Month Name", FORMAT([Date], "MMMM"),
     "Quarter", "Q" & FORMAT([Date], "Q")
 )
-
+---
 ### 💲Sales in USD (via Python exchange rate)
 ```dax
 Sales in USD = Sales[Sales Amount] * RELATED(ExchangeRates[ExchangeRate])
@@ -112,7 +112,7 @@ Sales in USD = Sales[Sales Amount] * RELATED(ExchangeRates[ExchangeRate])
 ### 💰Profit USD (Calculated Column)
 ```dax
 Profit USD = Sales[Net Revenue USD] - Sales[Total Cost USD]
-
+---
 ### 📉 Yearly Profit Margin
 ```dax
 Yearly Profit Margin = 
@@ -120,7 +120,7 @@ DIVIDE(
     SUM(Sales[Profit USD]),
     SUM(Sales[Gross Revenue USD])
 )
-
+---
 ### 📈 Quarterly Profit
 ```dax
 Quarterly Profit = 
@@ -128,11 +128,11 @@ CALCULATE(
     SUM(Sales[Profit USD]),
     DATESQTD(CalendarTable[Date])
 )
-
+---
 ### 📊 Median Sales
 ```dax
 Median Sales = MEDIAN(Sales[Sales Quantity])
-
+---
 ### 📅 YTD Profit
 ```dax
 YTD Profit = 
