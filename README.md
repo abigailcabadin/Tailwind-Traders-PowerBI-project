@@ -109,3 +109,110 @@ ADDCOLUMNS(
 ```dax
 Sales in USD = Sales[Sales Amount] * RELATED(ExchangeRates[ExchangeRate])
 ```
+
+### 💰Profit USD (Calculated Column)
+```dax
+Profit USD = Sales[Net Revenue USD] - Sales[Total Cost USD]
+```
+
+### 📉 Yearly Profit Margin
+``` dax
+Yearly Profit Margin = 
+DIVIDE(
+    SUM(Sales[Profit USD]),
+    SUM(Sales[Gross Revenue USD])
+)
+```
+
+### 📈 Quarterly Profit
+```dax
+Quarterly Profit = 
+CALCULATE(
+    SUM(Sales[Profit USD]),
+    DATESQTD(CalendarTable[Date])
+)
+```
+
+### 📊 Median Sales
+```dax
+Median Sales = MEDIAN(Sales[Sales Quantity])
+```
+
+### 📅 YTD Profit
+```dax
+YTD Profit = 
+CALCULATE(
+    SUM(Sales[Profit USD]),
+    DATESYTD(CalendarTable[Date])
+)
+```
+
+---
+
+## 🛠️ Issues Encountered & Resolutions
+
+### 1. 🐍 Python Script Import Error (Missing Module)
+
+**Issue**:  
+While importing exchange rate data using a Python script in Power BI, I encountered the following error:
+- Details: "ADO.NET: Python script error. Traceback (most recent call last): File "...\PythonScriptWrapper.PY", line 2, in <module> import os, pandas, matplotlib ModuleNotFoundError: No module named 'pandas'"
+
+**Resolution**:
+- Installed the missing pandas library by running:
+  
+```bash
+  pip install pandas
+```
+
+- Restarted Power BI Desktop to reload Python dependencies.
+- Configured Power BI to use the correct Python environment under File > Options and settings > Options > Python scripting.
+
+---
+
+### 2. 🧾 Incorrect Field Names and Table Reference in DAX
+**Issue**: Dax formulas were returning errors due to:
+- A space in the column name (Exchange Rate instead of ExchangeRate)
+-Incorrect table name from the python script output (df was not properly referenced)
+
+**Resolution**:
+- Renamed the column to ExchangeRate (removed the space).
+
+---
+
+### 3. 🔧 Data Model Adjustment
+
+**Issue**: The new `Sales in USD` table needed a calculated column for `Profit USD`, and it was crucial to maintain correct relationships to allow for time-intelligence functions (e.g., YTD).
+
+**Resolution**:
+- Created a new calculated column using DAX for `Profit USD`.
+- Reviewed and validated relationships across all relevant tables to ensure time-aware calculations worked as expected.
+
+---
+
+### 3. 📊 Chart Formatting Challenges
+
+**Issue**: Dashboard visuals, especially slicers and axis labels, were not responsive or well-aligned initially, leading to a cluttered user experience.
+
+**Resolution**:
+- Fine-tuned the slicer behavior and adjusted axis scaling and sorting.
+- Aligned visuals for consistent layout and improved readability.
+
+---
+
+## 🎓 Course Skills Applied
+
+- ✅ Data extraction and transformation with **Power Query**
+- ✅ Designing dimensional data models (star schema)
+- ✅ DAX functions for custom metrics and KPIs
+- ✅ Time intelligence using `DATESYTD`, `DATESQTD`, `YEAR`, `QUARTER`
+- ✅ Interactive dashboard creation with slicers, cards, pie/bar/line charts
+- ✅ Usability and storytelling through visual design
+
+---
+
+## 🚀 Outcome
+
+This project demonstrates end-to-end proficiency with Power BI. From cleaning and modeling to storytelling with interactive dashboards, this capstone proves readiness to take on real-world analytics roles.
+
+---
+> Built with ❤️ by [Abigail Cabadin](https://github.com/abig
