@@ -105,13 +105,15 @@ ADDCOLUMNS(
     "Quarter", "Q" & FORMAT([Date], "Q")
 )
 
+### 💲Sales in USD (via Python exchange rate)
 ```dax
 Sales in USD = Sales[Sales Amount] * RELATED(ExchangeRates[ExchangeRate])
 
+### 💰Profit USD (Calculated Column)
 ```dax
 Profit USD = Sales[Net Revenue USD] - Sales[Total Cost USD]
 
-
+### 📉 Yearly Profit Margin
 ```dax
 Yearly Profit Margin = 
 DIVIDE(
@@ -119,6 +121,7 @@ DIVIDE(
     SUM(Sales[Gross Revenue USD])
 )
 
+### 📈 Quarterly Profit
 ```dax
 Quarterly Profit = 
 CALCULATE(
@@ -126,9 +129,11 @@ CALCULATE(
     DATESQTD(CalendarTable[Date])
 )
 
+### 📊 Median Sales
 ```dax
 Median Sales = MEDIAN(Sales[Sales Quantity])
 
+### 📅 YTD Profit
 ```dax
 YTD Profit = 
 CALCULATE(
@@ -140,20 +145,32 @@ CALCULATE(
 
 ## 🛠️ Issues Encountered & Resolutions
 
-### 1. 🐍 Python Script Import Error
+### 1. 🐍 Python Script Import Error (Missing Module)
 
-**Issue**: While integrating the exchange rate conversion via Python, I ran into an error due to incorrect field naming and table referencing in DAX formulas.
-
-- The field was mistakenly named `Exchange Rate` instead of `ExchangeRate`.
-- The Python-generated table wasn’t aligned with the rest of the model.
+**Issue**:  
+While importing exchange rate data using a Python script in Power BI, I encountered the following error:
+- Details: "ADO.NET: Python script error. Traceback (most recent call last): File "...\PythonScriptWrapper.PY", line 2, in <module> import os, pandas, matplotlib ModuleNotFoundError: No module named 'pandas'"
 
 **Resolution**:
-- Cleaned up column names by removing spaces.
-- Renamed the Python-generated table to `df` to match the DAX references and ensure smooth model integration.
+- Installed the missing `pandas` library by running:
+  ```bash
+  pip install pandas
+- Restarted Power BI Desktop to reload Python dependencies.
+- Configured Power BI to use the correct Python environment under File > Options and settings > Options > Python scripting.
 
 ---
 
-### 2. 🔧 Data Model Adjustment
+### 2. 🧾 Incorrect Field Names and Table Reference in DAX
+**Issue**: Dax formulas were returning errors due to:
+- A space in the column name (Exchange Rate instead of ExchangeRate)
+-Incorrect table name from the python script output (df was not properly referenced)
+
+**Resolution**:
+- Renamed the column to ExchangeRate (removed the space).
+
+---
+
+### 3. 🔧 Data Model Adjustment
 
 **Issue**: The new `Sales in USD` table needed a calculated column for `Profit USD`, and it was crucial to maintain correct relationships to allow for time-intelligence functions (e.g., YTD).
 
