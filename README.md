@@ -104,3 +104,5 @@ ADDCOLUMNS(
     "Quarter", "Q" & FORMAT([Date], "Q")
 )
 
+### 💲 Sales in USD
+Sales in USD = Sales[Sales Amount] * RELATED(ExchangeRates[ExchangeRate])
