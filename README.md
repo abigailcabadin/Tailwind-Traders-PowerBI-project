@@ -1,25 +1,25 @@
 ![Tailwind Traders Logo](https://raw.githubusercontent.com/abigailcabadin/Tailwind-Traders-PowerBI-project/main/tailwind%20traders%20logo.jpg)
 
-# 📊 Tailwind Traders Power BI Project
+# Tailwind Traders Power BI Project
 
 This repository showcases the **Capstone Project** for the **Microsoft Power BI Professional Certificate** on **Coursera**. The project simulates a real-world business scenario where the learner demonstrates proficiency in data preparation, modeling, analysis, and visualization using **Power BI**.
 
 ---
 
-## 🧭 Table of Contents
+## Table of Contents
 
-- [📖 Case Study Overview](#-case-study-overview)
-- [📁 Datasets](#-datasets)
-- [🔍 Project Summary](#-project-summary)
-- [📌 Summary of Exercises](#-summary-of-exercises)
-- [📊 Power BI Reports](#-power-bi-reports)
-- [🛠️ Issues Encountered & Resolutions](#️-issues-encountered--resolutions)
-- [🎓 Course Skills Applied](#-course-skills-applied)
-- [🚀 Outcome](#-outcome)
+- [Case Study Overview](#-case-study-overview)
+- [Datasets](#-datasets)
+- [Project Summary](#-project-summary)
+- [Summary of Exercises](#-summary-of-exercises)
+- [Power BI Reports](#-power-bi-reports)
+- [Issues Encountered & Resolutions](#️-issues-encountered--resolutions)
+- [Course Skills Applied](#-course-skills-applied)
+- [Outcome](#-outcome)
 
 ---
 
-## 📖 Case Study Overview
+## Case Study Overview
 
 **Tailwind Traders** is a fictional retail company that sells products across multiple countries. As a newly hired **Data Analyst**, you're tasked with delivering actionable insights using Power BI. The data spans sales transactions, customer loyalty points, product categories, returns, and supplier information.
 
@@ -27,7 +27,7 @@ This project is part of the **final assessment** for the **Microsoft Power BI Pr
 
 ---
 
-## 📁 Datasets
+## Datasets
 
 All raw Excel datasets used in this project are available in the repository:
 
@@ -37,7 +37,7 @@ All raw Excel datasets used in this project are available in the repository:
 
 ---
 
-## 🔍 Project Summary
+## Project Summary
 
 The capstone project required the full BI lifecycle:
 1. Connecting and cleaning multiple data sources (Excel files)
@@ -50,7 +50,7 @@ In addition to the required **Sales** and **Profit** reports, an extra **Purchas
 
 ---
 
-## 📌 Summary of Exercises
+## Summary of Exercises
 
 | Exercise                        | Description |
 |-------------------------------|-------------|
@@ -62,9 +62,9 @@ In addition to the required **Sales** and **Profit** reports, an extra **Purchas
 
 ---
 
-## 📊 Power BI Reports
+## Power BI Reports
 
-### 🟦 Sales Overview
+### Sales Overview
 
 ![Sales Overview](https://raw.githubusercontent.com/abigailcabadin/Tailwind-Traders-PowerBI-project/main/Sales%20Overview.jpg)
 
@@ -74,7 +74,7 @@ In addition to the required **Sales** and **Profit** reports, an extra **Purchas
 
 ---
 
-### 🟨 Purchases Overview *(Bonus Report)*
+### Purchases Overview *(Bonus Report)*
 
 ![Purchases Overview](https://raw.githubusercontent.com/abigailcabadin/Tailwind-Traders-PowerBI-project/main/Purchases%20overview.jpg)
 
@@ -84,7 +84,7 @@ In addition to the required **Sales** and **Profit** reports, an extra **Purchas
 
 ---
 
-### 🟥 Profit Overview
+### Profit Overview
 
 ![Profit Overview](https://raw.githubusercontent.com/abigailcabadin/Tailwind-Traders-PowerBI-project/main/Profit%20Overview.jpg)
 
@@ -94,9 +94,9 @@ In addition to the required **Sales** and **Profit** reports, an extra **Purchas
 
 ---
 
-## 🧮 DAX Formulas
+## DAX Formulas
 
-### 📅 Calendar Table
+### Calendar Table
 ```dax
 CalendarTable = 
 ADDCOLUMNS(
@@ -108,17 +108,17 @@ ADDCOLUMNS(
 )
 ```
 
-### 💲 Sales in USD
+### Sales in USD
 ```dax
 Sales in USD = Sales[Sales Amount] * RELATED(ExchangeRates[ExchangeRate])
 ```
 
-### 💰Profit USD (Calculated Column)
+### Profit USD (Calculated Column)
 ```dax
 Profit USD = Sales[Net Revenue USD] - Sales[Total Cost USD]
 ```
 
-### 📉 Yearly Profit Margin
+### Yearly Profit Margin
 ``` dax
 Yearly Profit Margin = 
 DIVIDE(
@@ -127,7 +127,7 @@ DIVIDE(
 )
 ```
 
-### 📈 Quarterly Profit
+### Quarterly Profit
 ```dax
 Quarterly Profit = 
 CALCULATE(
@@ -136,12 +136,12 @@ CALCULATE(
 )
 ```
 
-### 📊 Median Sales
+### Median Sales
 ```dax
 Median Sales = MEDIAN(Sales[Sales Quantity])
 ```
 
-### 📅 YTD Profit
+### YTD Profit
 ```dax
 YTD Profit = 
 CALCULATE(
@@ -152,9 +152,9 @@ CALCULATE(
 
 ---
 
-## 🛠️ Issues Encountered & Resolutions
+## Issues Encountered & Resolutions
 
-### 1. 🐍 Python Script Import Error (Missing Module)
+### 1. Python Script Import Error (Missing Module)
 
 **Issue**:  
 While importing exchange rate data using a Python script in Power BI, I encountered the following error:
@@ -198,7 +198,7 @@ ModuleNotFoundError: No module named 'pandas'"
 
 ---
 
-### 3. 📊 Chart Formatting Challenges
+### 3. Chart Formatting Challenges
 
 **Issue**: Dashboard visuals, especially slicers and axis labels, were not responsive or well-aligned initially, leading to a cluttered user experience.
 
@@ -208,18 +208,18 @@ ModuleNotFoundError: No module named 'pandas'"
 
 ---
 
-## 🎓 Course Skills Applied
+## Course Skills Applied
 
-- ✅ Data extraction and transformation with **Power Query**
-- ✅ Designing dimensional data models (star schema)
-- ✅ DAX functions for custom metrics and KPIs
-- ✅ Time intelligence using `DATESYTD`, `DATESQTD`, `YEAR`, `QUARTER`
-- ✅ Interactive dashboard creation with slicers, cards, pie/bar/line charts
-- ✅ Usability and storytelling through visual design
+- Data extraction and transformation with **Power Query**
+- Designing dimensional data models (star schema)
+- DAX functions for custom metrics and KPIs
+- Time intelligence using `DATESYTD`, `DATESQTD`, `YEAR`, `QUARTER`
+- Interactive dashboard creation with slicers, cards, pie/bar/line charts
+- Usability and storytelling through visual design
 
 ---
 
-## 🚀 Outcome
+## Outcome
 
 This project demonstrates end-to-end proficiency with Power BI. From cleaning and modeling to storytelling with interactive dashboards, this capstone proves readiness to take on real-world analytics roles.
 
